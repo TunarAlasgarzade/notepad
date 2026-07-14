@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:notepad/components/my_textfield.dart';
 import 'package:notepad/models/note_model.dart';
 import 'package:flutter/material.dart';
 
@@ -45,66 +46,20 @@ class _EditNotePageState extends State<EditNotePage> {
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextField(
-                controller: titleController,
-                cursorColor: Colors.green,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
-                      color: Colors.green,
-                      width: 2
-                    )
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8)
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(
-                      color: Colors.green,
-                      width: 2
-                    ),
-                  ),
-                  hintText: "Title",
-                  hintStyle: TextStyle(
-                    color: Colors.grey
-                  )
-                ),
-              ),
+              child: MyTextfield(
+                controller: titleController, 
+                hintText: "Title"
+              )
             ),
             SizedBox(height: 12),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: TextField(
-                controller: noteController,
-                cursorColor: Colors.green,
+              child: MyTextfield(
+                controller: noteController, 
+                hintText: "Note",
                 minLines: 8,
                 maxLines: 10,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
-                      color: Colors.green,
-                      width: 2
-                    )
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8)
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(
-                      color: Colors.green,
-                      width: 2
-                    ),
-                  ),
-                  hintText: "Note",
-                  hintStyle: TextStyle(
-                    color: Colors.grey
-                  )
-                ),
-              ),
+              )
             ),
             SizedBox(height: 12),
             Row(
