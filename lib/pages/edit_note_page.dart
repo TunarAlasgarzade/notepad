@@ -20,24 +20,27 @@ class EditNotePage extends StatefulWidget {
 class _EditNotePageState extends State<EditNotePage> {
   final titleController = TextEditingController();
   final noteController = TextEditingController();
+  
   @override
   void dispose() {
     titleController.dispose();
     noteController.dispose();
     super.dispose();
   }
+
   @override
   void initState() {
     super.initState();
     titleController.text = widget.note.title;
     noteController.text = widget.note.note;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Edit Note", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
@@ -67,7 +70,7 @@ class _EditNotePageState extends State<EditNotePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green
+                    backgroundColor: Theme.of(context).colorScheme.primary
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -76,7 +79,7 @@ class _EditNotePageState extends State<EditNotePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green
+                    backgroundColor: Theme.of(context).colorScheme.primary
                   ),
                   onPressed: () {
                     if (titleController.text.isNotEmpty && noteController.text.isNotEmpty) {

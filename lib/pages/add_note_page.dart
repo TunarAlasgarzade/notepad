@@ -12,18 +12,20 @@ class AddNotePage extends StatefulWidget {
 class _AddNotePageState extends State<AddNotePage> {
   final titleController = TextEditingController();
   final noteController = TextEditingController();
+
   @override
   void dispose() {
     titleController.dispose();
     noteController.dispose();
     super.dispose();
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Note", style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
@@ -53,7 +55,7 @@ class _AddNotePageState extends State<AddNotePage> {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green
+                    backgroundColor: Theme.of(context).colorScheme.primary
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -62,7 +64,7 @@ class _AddNotePageState extends State<AddNotePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green
+                    backgroundColor: Theme.of(context).colorScheme.primary
                   ),
                   onPressed: () {
                     if (titleController.text.isNotEmpty && noteController.text.isNotEmpty) {

@@ -22,7 +22,7 @@ class _NotePageState extends State<NotePage> {
       appBar: AppBar(
         title: Text(widget.note.title, style: TextStyle(color: Colors.white),),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -39,7 +39,7 @@ class _NotePageState extends State<NotePage> {
             Navigator.pop(context, result);
           }
         },
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         child: Icon(Icons.edit, color: Colors.white,),
       ),
       body: SingleChildScrollView(
