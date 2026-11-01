@@ -57,7 +57,8 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(
-              notes[index].title
+              notes[index].title,
+              overflow: TextOverflow.ellipsis,
             ),
             subtitle: Text(
               notes[index].note,
@@ -90,7 +91,8 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 );
-              },),
+              },
+            ),
             onTap: () async {
               final result = await Navigator.push(
                 context,
@@ -107,6 +109,13 @@ class _HomePageState extends State<HomePage> {
                 });
               }
             },
+            onLongPress: () => showDialog(
+              context: context, 
+              builder: (context) => AlertDialog(
+                title: SelectableText(notes[index].title),
+                backgroundColor: Theme.of(context).colorScheme.secondary,
+              ),
+            ),
           );
         }
       ),
