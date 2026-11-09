@@ -25,6 +25,8 @@ A simple note-taking and task management application built with Flutter and Hive
 ### General
 - Local storage with Hive
 - Light and dark theme support
+- Switch between light and dark themes
+- Save theme preference across app restarts
 
 ## Screenshots
 
@@ -41,3 +43,4 @@ A simple note-taking and task management application built with Flutter and Hive
 - Flutter
 - Dart
 - Hive
+- Provider

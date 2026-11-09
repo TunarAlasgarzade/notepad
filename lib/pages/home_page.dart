@@ -5,6 +5,8 @@ import 'package:notepad/models/note_model.dart';
 import 'package:notepad/models/task_model.dart';
 import 'package:notepad/pages/note_page.dart';
 import 'package:notepad/pages/task_page.dart';
+import 'package:notepad/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,6 +22,19 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Home", style: TextStyle(color: Colors.white)),
         backgroundColor: Theme.of(context).colorScheme.primary,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            }, 
+            icon: Icon(
+              Provider.of<ThemeProvider>(context).isDarkMode 
+              ? Icons.nightlight_round 
+              : Icons.wb_sunny, 
+              color: Colors.white
+            )
+          )
+        ],
       ),
       body: SafeArea(
         child: _buildItems()
