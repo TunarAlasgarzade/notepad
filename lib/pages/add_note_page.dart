@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+import 'package:notepad/components/my_button.dart';
 import 'package:notepad/components/my_textfield.dart';
 import 'package:notepad/models/note_model.dart';
 import 'package:flutter/material.dart';
@@ -53,36 +55,29 @@ class _AddNotePageState extends State<AddNotePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary
-                  ),
+                MyButton(
                   onPressed: () {
                     Navigator.pop(context);
                   }, 
-                  child: Text("Cancel", style: TextStyle(color: Colors.white),)
+                  text: "Cancel",
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary
-                  ),
-                  onPressed: () {
+                MyButton(
+                  onPressed: () async {
                     if (titleController.text.isNotEmpty && noteController.text.isNotEmpty) {
                       final note = NoteModel(
                         title: titleController.text, 
                         note:  noteController.text,
                       );
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Note Saved!"))
-                    );
-                    Navigator.pop(context, note);
+                      await Hive.box("notes").add(note.toMap());
+                      if (!mounted) return;
+                      Navigator.pop(this.context);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("Please fill in all fields"))
                       );
                     }
                   }, 
-                  child: Text("Save", style: TextStyle(color: Colors.white),)
+                  text: "Save"
                 )
               ],
             )

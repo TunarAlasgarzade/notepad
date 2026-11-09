@@ -25,19 +25,15 @@ class _NotePageState extends State<NotePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final result = await Navigator.push(
-            context,
-            MaterialPageRoute(
+        onPressed: ()  {
+          Navigator.push(
+            context, MaterialPageRoute(
               builder: (context) => EditNotePage(
                 note: widget.note,
                 index: widget.index,
               ),
             ),
           );
-          if (result is NoteModel) {
-            Navigator.pop(context, result);
-          }
         },
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: Icon(Icons.edit, color: Colors.white,),

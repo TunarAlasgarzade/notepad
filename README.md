@@ -1,22 +1,30 @@
 # Notepad
 
-A simple note-taking application built with Flutter and Hive.
+A simple note-taking and task management application built with Flutter and Hive.
 
 ## Features
 
+### Notes
 - Create notes
 - Edit notes
 - Delete notes
-- Local storage with Hive
-- Confirmation dialog before deleting
 - Scrollable note page
+- Confirmation dialog before deleting
 - Input validation
 
-## Technologies
+### Tasks
+- Create tasks
+- Edit task titles
+- Delete individual todos
+- Add todos to tasks
+- Edit todos
+- Mark todos as completed or incomplete
+- Visual indication of completed todos
+- Display completed todo count
 
-- Flutter
-- Dart
-- Hive
+### General
+- Local storage with Hive
+- Light and dark theme support
 
 ## Screenshots
 
@@ -27,3 +35,9 @@ A simple note-taking application built with Flutter and Hive.
 | Add Note Page | Edit Note Page |
 |---|---|
 | ![](assets/screenshots/notepad_add_note.jpg) | ![](assets/screenshots/notepad_edit_note.jpg) |
+
+## Technologies
+
+- Flutter
+- Dart
+- Hive
